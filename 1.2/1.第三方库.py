@@ -1,7 +1,11 @@
 # 1. requests - 简单发起HTTP GET请求
 import requests
+import urllib3
 
-response = requests.get("https://api.github.com")
+# 禁用 SSL 警告（仅用于学习演示，生产环境应使用正确的证书）
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+
+response = requests.get("https://api.github.com", verify=False)
 print(f"GitHub API响应状态码: {response.status_code}")
 
 # 2. numpy & pandas - 数值和数据分析
