@@ -1,30 +1,37 @@
-# 函数定义在下面，上面能调用吗
-# fn1()
 
 """
+# 1.6-1 函数定义在下面，上面能调用吗- 不能
+fn1()
+
 def fn1():
     print("fn1")
 
-
-# py 里边的类型推断怎么做， process_student_data 参数类型推断怎么做
+# 1.6-2 py 里边的类型推断怎么做， process_student_data 参数类型推断怎么做
 # 类型定义 类型
 # pydantic
-# field not in student_info 是什么意思 在tuple里面没有？
-# 就是判断在字典是有没这个属性，有没有这个key
+
+
+# 1.6-3 field not in student_info 是什么意思 在tuple里面没有？
+# 就是判断 在字典里 有没这个属性，有没有这个key
 student_info = {"a": 1, "b": 2}
+
 if "a" in student_info:
     print("a exist")
 
 if not "c" in student_info:
     print("c not exist")
 
-# python有转换数字失败，然后NaN的概念吗
+
+# 1.6-4 python有转换数字失败，然后NaN的概念吗
 try:
     res = int("aaa111")
     print(res)
 except (ValueError, TypeError) as error:
-    # invalid literal for int() with base 10: 'aaa111'
-    print(error)
+    print(error)   # invalid literal for int() with base 10: 'aaa111'
+
+
+
+
 
 # python字典能和js一样解构和key同名简写么
 

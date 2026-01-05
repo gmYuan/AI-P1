@@ -8,6 +8,7 @@ def process_student_data(student_info):
         for field in required_fields:
             if field not in student_info:
                 return None
+
         # 2.去空格
         name = str(student_info["name"]).strip()
         if not name:
@@ -20,6 +21,7 @@ def process_student_data(student_info):
         score = float(student_info["score"])
         if not (0.0 <= score <= 100.0):
             return None
+
         is_passed_str = student_info["is_passed"].lower()
         if is_passed_str == "true":
             is_passed = True
@@ -150,7 +152,9 @@ def analyze_student_performance(students, filter=None):
     }
 
 
+# 入口
 print("学生成绩管理系统")
+
 # 定义测试用的学生数据列表
 test_students = [
     {"name": " 张三 ", "age": "20", "score": "85.5", "is_passed": "true"},
@@ -159,6 +163,7 @@ test_students = [
     {"name": "赵六", "age": "22", "score": "65.7", "is_passed": "true"},
     {"name": "钱七", "age": "20", "score": "45.2", "is_passed": "false"},
 ]
+
 # 1.数据类型转换
 processed_students = []
 for i, student in enumerate(test_students):
@@ -169,10 +174,12 @@ for i, student in enumerate(test_students):
         print(f"学生{i}无效")
 pprint(processed_students)
 
+
 # 2.成绩计算与格式化
 if processed_students:
     grade_report = calculate_and_format_grades(processed_students)
     print(grade_report)
+
 
 # 3.数据筛选与统计
 # 筛选条件测试

@@ -4,7 +4,6 @@
  * args
  * return
 
-
 const Variable = 1
 const variable = 2
 console.log(Variable)
@@ -18,8 +17,13 @@ class Person{
 }
 const p1 = new Person()
 
+
+## 2
 const p = {"a": 1, "b": 2}
-//if p.a  else 
+// if p.a  else
+
+
+
 
 let obj1 = {a:1}
 let obj2 = {b:2}
@@ -28,6 +32,8 @@ let obj3 = {
     ...obj2
 }
 console.log(obj3)
+
+
 
 
 let arr1 = [1,2]
