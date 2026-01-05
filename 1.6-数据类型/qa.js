@@ -17,18 +17,13 @@ class Person{
 }
 const p1 = new Person()
 
-*/
 
-
-// ----------------------------------------
-/** 1.6-3
+## 2
 const p = {"a": 1, "b": 2}
 // if p.a  else
-*/
 
 
-// ----------------------------------------
-/**  1.6-7 展开运算符/ 解包
+
 
 let obj1 = {a:1}
 let obj2 = {b:2}
@@ -39,32 +34,22 @@ let obj3 = {
 console.log(obj3)
 
 
+
+
 let arr1 = [1,2]
 let arr2 = [3,4]
-// 展开
+//展开
 let arr3 = [...arr1,...arr2]
 console.log(arr3)
-*/
 
-
-// ----------------------------------------
-/**  1.6-8 列表推导式/生成式
 
 let arr4 = [1,2,3]
 let arr5 = [...arr4.map(item=>item*item)]
 console.log(arr5)
 
 console.log(arr5.join(', '));
-*/
 
 
-
-
-
-
-
-
-/**
 //能不能像js那样 grade_counts||100
 let grade_counts = 10
 let grade = grade_counts||100

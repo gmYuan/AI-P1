@@ -58,16 +58,20 @@ def calculate_and_format_grades(students):
         garde = get_grade(student["score"])
         students_with_grades.append({**student, "grade": garde})
 
+    # 列表推导式/生成式
     scores = [s["score"] for s in students_with_grades]
+
     # 平均分
     average_score = sum(scores) / len(scores)
     max_score = max(scores)
     min_score = min(scores)
+
     # 统计每个等级的人数
     grade_counts = {}
     for student in students_with_grades:
         grade = student["grade"]
         grade_counts[grade] = grade_counts.get(grade, 0) + 1
+
     result = "成绩报告"
     result += "=" * 42 + "\n"
     result += f"{'学生姓名':<10} {'分数':<8} {'等级':<4}\n"

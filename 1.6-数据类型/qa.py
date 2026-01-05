@@ -5,17 +5,12 @@ fn1()
 
 def fn1():
     print("fn1")
-"""
 
-
-"""---------------------------------------------------------------------
 # 1.6-2 py 里边的类型推断怎么做， process_student_data 参数类型推断怎么做
 # 类型定义 类型
 # pydantic
-"""
 
 
-"""---------------------------------------------------------------------
 # 1.6-3 field not in student_info 是什么意思 在tuple里面没有？
 # 就是判断 在字典里 有没这个属性，有没有这个key
 student_info = {"a": 1, "b": 2}
@@ -25,26 +20,24 @@ if "a" in student_info:
 
 if not "c" in student_info:
     print("c not exist")
-"""
 
 
-"""---------------------------------------------------------------------
 # 1.6-4 python有转换数字失败，然后NaN的概念吗
 try:
     res = int("aaa111")
     print(res)
 except (ValueError, TypeError) as error:
     print(error)   # invalid literal for int() with base 10: 'aaa111'
-"""
 
 
-"""---------------------------------------------------------------------
-# 1.6-5 python字典能和js一样解构和key同名简写么-  可以
-"""
 
 
-"""---------------------------------------------------------------------
-# 1.6-6 那互相调用的2个函数怎么写呢
+
+# python字典能和js一样解构和key同名简写么
+
+# 那互相调用的2个函数怎么写呢
+
+
 
 def f2():
     print("f2")
@@ -55,17 +48,16 @@ def f1():
     print("f1")
     f2()
 
-f2() ==> 死循环
-"""
 
+f2()
 
-"""---------------------------------------------------------------------
-# 1.6-7 解构赋值
 
 student_info = {"a": 1, "b": 2}
 
+
 def demo(key):
     print(student_info[key])
+
 
 demo("a")
 
@@ -76,40 +68,33 @@ for item in student_info.items():
 
 for key in student_info.keys():
     print(key)
-    
 for value in student_info.values():
     print(value)
 
 
 (a, b) = student_info
 print(a, b, student_info[a], student_info[b])
-"""
 
-
-"""---------------------------------------------------------------------
-# 1.6-7 展开运算符/ 解包
 
 obj1 = {"a": 1}
 obj2 = {"b": 2}
-
 # 解包
 obj3 = {**obj1, **obj2}
 print(obj3)
+
 
 arr1 = [1, 2]
 arr2 = [3, 4]
 arr3 = [*arr1, *arr2]
 print(arr3)
 
+
 arr4 = (1, 2)
 arr5 = (3, 4)
 arr6 = (*arr1, *arr2)
 print(arr6)
-"""
 
 
-"""---------------------------------------------------------------------
-#  1.6-8 列表推导式/生成式
 students = [{"name": "1", "age": 18}, {"name": "2", "age": 28}]
 
 # [s["score"] for s in students_with_grades]
@@ -118,31 +103,18 @@ for student in students:
     arr.append(student["name"])
 print(arr)
 
+
 print([student["name"] for student in students])
-"""
+# fn(位置参数，关键字参数)
 
-
-"""---------------------------------------------------------------------
-# 1.6-9  fn(位置参数，关键字参数)
-"""
-
-
-
-"""---------------------------------------------------------------------
-# 1.6-10  obj.get
 
 grade_counts = {}
 score = grade_counts.get("score", 100)
 print(score)
 print(grade_counts)
-"""
 
 
 
-
-
-
-"""
 grade_counts = {"A": 10, "B": 20}
 print(grade_counts.items())
 print(", ".join([f"{grade}:{count}人" for grade, count in grade_counts.items()]))
