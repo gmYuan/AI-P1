@@ -5,12 +5,17 @@ fn1()
 
 def fn1():
     print("fn1")
+"""
 
+
+"""------------------------------------------------------------------------
 # 1.6-2 py 里边的类型推断怎么做， process_student_data 参数类型推断怎么做
 # 类型定义 类型
 # pydantic
+"""
 
 
+"""------------------------------------------------------------------------
 # 1.6-3 field not in student_info 是什么意思 在tuple里面没有？
 # 就是判断 在字典里 有没这个属性，有没有这个key
 student_info = {"a": 1, "b": 2}
@@ -20,8 +25,10 @@ if "a" in student_info:
 
 if not "c" in student_info:
     print("c not exist")
+"""
 
 
+"""------------------------------------------------------------------------
 # 1.6-4 python有转换数字失败，然后NaN的概念吗
 try:
     res = int("aaa111")
@@ -29,37 +36,37 @@ try:
 except (ValueError, TypeError) as error:
     print(error)   # invalid literal for int() with base 10: 'aaa111'
 
+"""
 
 
-
-
-# python字典能和js一样解构和key同名简写么
+"""------------------------------------------------------------------------
+# 1.6-5 python字典能和js一样解构和key同名简写么
 
 # 那互相调用的2个函数怎么写呢
-
-
 
 def f2():
     print("f2")
     f1()
 
-
 def f1():
     print("f1")
     f2()
 
+f2()  # 死循环
 
-f2()
+"""
 
+
+"""------------------------------------------------------------------------
+# 1.6-6 展开运算符/ 解包
 
 student_info = {"a": 1, "b": 2}
-
 
 def demo(key):
     print(student_info[key])
 
-
 demo("a")
+
 
 student_info = {"name": 1, "age": 2}
 
@@ -68,6 +75,7 @@ for item in student_info.items():
 
 for key in student_info.keys():
     print(key)
+
 for value in student_info.values():
     print(value)
 
@@ -79,7 +87,7 @@ print(a, b, student_info[a], student_info[b])
 obj1 = {"a": 1}
 obj2 = {"b": 2}
 # 解包
-obj3 = {**obj1, **obj2}
+obj3 = { **obj1, **obj2 }
 print(obj3)
 
 
@@ -96,8 +104,14 @@ print(arr6)
 
 
 students = [{"name": "1", "age": 18}, {"name": "2", "age": 28}]
+"""
+
+
+"""------------------------------------------------------------------------
+# 1.6-7 列表生成式
 
 # [s["score"] for s in students_with_grades]
+
 arr = []
 for student in students:
     arr.append(student["name"])
@@ -107,87 +121,147 @@ print(arr)
 print([student["name"] for student in students])
 # fn(位置参数，关键字参数)
 
+"""
 
+
+"""------------------------------------------------------------------------
+# 1.6-8 对象 val的后备值
+ 
 grade_counts = {}
 score = grade_counts.get("score", 100)
 print(score)
 print(grade_counts)
+"""
 
 
+
+"""------------------------------------------------------------------------
+# 1.6-9 grade_counts.items + join使用
 
 grade_counts = {"A": 10, "B": 20}
-print(grade_counts.items())
+
+print(grade_counts.items())  # (A, 10), (B, 20)
+
+print([f"{grade}:{count}人" for grade, count in grade_counts.items()])
+
 print(", ".join([f"{grade}:{count}人" for grade, count in grade_counts.items()]))
 
 # pyton js 连接的方法不一样 join
 
 arr4 = ["1", "2", "3"]
 print(",".join(arr4))
+"""
 
+
+"""------------------------------------------------------------------------
+# 1.6-10 后备值
 
 grade_counts = None
 grade = grade_counts or 100
 print(grade)
+"""
 
+
+"""------------------------------------------------------------------------
+# 1.6-11 sort
 
 #'<' not supported between instances of 'dict' and 'dict'
 arr5 = [{"a": 1, "b": 2}, {"a": 2, "b": 1}]
-# lambda 1<2
+# arr6 = sorted(arr5, key=lambda x: x["b"], reverse=True)
+# print(arr5)
+# print(arr6)
 
-
+另一种写法：
 def sort(item):
     return item["b"]
 
-
-# arr6 = sorted(arr5, key=lambda x: x["b"], reverse=True)
 arr6 = sorted(arr5, key=sort, reverse=True)
 print(arr5)
 print(arr6)
-let arr8 = [{"a": 1, "b": 2}, {"a": 3, "b": 4}]
-let result = arr8.map(item=>item.a+item.b)
-console.log(result)
+"""
+
+
+"""------------------------------------------------------------------------
+# 1.6-9.2 类似于 JS 的 map效果
+
+# let arr8 = [{"a": 1, "b": 2}, {"a": 3, "b": 4}]
+# let result = arr8.map(item=>item.a+item.b)
+# console.log(result)
 
 arr5 = [{"a": 1, "b": 2}, {"a": 3, "b": 4}]
 result = [item["a"] + item["b"] for item in arr5]
 print(result)
+"""
 
+
+"""------------------------------------------------------------------------
+# 1.6-12 enumerate
 
 arr1 = ["A", "B", "C"]
 for index, item in enumerate(arr1, 10):
     print(index, item)
-# [s["score"] for s in students_with_grades if age>20]
+    
+"""
+
+
+"""------------------------------------------------------------------------
+# 1.6-13 类似于 JS 的 filter效果
+
+# [s["name"] for s in students_with_grades if age>20]
+
 arr = []
 for student in students:
     if student["age"] > 20:
         arr.append(student["name"])
 print(arr)
+"""
 
+
+"""------------------------------------------------------------------------
+# 1.6-14 for循环，如果返回值和判断条件都比较复杂，可以写方法吗- 可以
 
 students = [{"name": "1", "age": 18}, {"name": "2", "age": 28}]
-
 
 def filter(item):
     # 经过非常复杂的计算和判断
     return True
 
-
 def getValue(item):
     # 经过非常复杂的计算和判断
     return item
 
-
 # for循环，如果返回值和判断条件都比较复杂，可以写方法吗
 arr2 = [getValue(s) for s in students if filter(s)]
+"""
 
+
+"""------------------------------------------------------------------------
+# 1.6-15 可迭代对象 迭代协议 迭代器 生成器函数 生成器对象
 
 students = [{"name": "1", "age": 18}, {"name": "2", "age": 28}]
 arr1 = [1 for s in students]
 print(list(arr1))
 print(sum([1 for s in students]))
 print(1 for s in students)
-# 可迭代对象 迭代协议 迭代器 生成器函数 生成器对象
+"""
 
 
+students = [{"name": "1", "age": 18}, {"name": "2", "age": 28}]
+arr1 = [1 for s in students]
+# print(list(arr1))
+print(sum([1 for s in students]))
+print(1 for s in students)
+
+
+
+
+
+
+
+
+
+
+"""
 arr1 = ["A", "B", "C"]
 for index, item in enumerate(arr1, 10):
     print(index, item)

@@ -72,15 +72,15 @@ def calculate_and_format_grades(students):
         grade = student["grade"]
         grade_counts[grade] = grade_counts.get(grade, 0) + 1
 
-    result = "成绩报告"
+    result = "\n成绩报告"
     result += "=" * 42 + "\n"
     result += f"{'学生姓名':<10} {'分数':<8} {'等级':<4}\n"
-    result += "=" * 42 + "\n"
+    result += "-" * 42 + "\n"
 
     for student in students_with_grades:
         result += f"{student['name']:<10} {student['score']:<8} {student['grade']:<4}\n"
 
-    result += "=" * 42 + "\n"
+    result += "-" * 42 + "\n"
     result += f"平均分:{average_score}\n"
     result += f"最高分:{max_score}\n"
     result += f"最低分:{min_score}\n"
@@ -120,6 +120,7 @@ def analyze_student_performance(students, filter=None):
             return "F"
 
     if filter:
+        # 构造filtered_students 筛选内容
         if "min_score" in filter:
             filtered_students = [
                 s for s in filtered_students if s["score"] >= filter["min_score"]
@@ -134,19 +135,26 @@ def analyze_student_performance(students, filter=None):
             filtered_students = [
                 s for s in filtered_students if get_grade(s["score"]) == target_grade
             ]
+
         filtered_count = len(filtered_students)
+        # 求average_score 值
         if filtered_students:
             average_score = (
                 sum([s["score"] for s in filtered_students]) / filtered_count
             )
         else:
             average_score = 0
+
+        # 按照score 进行排序，获取排名
         sorted_students = sorted(
             filtered_students, key=lambda x: x["score"], reverse=True
         )
         top_performers = sorted_students[:3]
+
+        # 算通过率
         passed_count = sum([1 for s in filtered_students if s["score"] >= 60])
         pass_rate = (passed_count / filtered_count * 100) if filtered_count > 0 else 0.0
+
     return {
         "total_count": total_count,
         "filtered_count": filtered_count,
@@ -187,7 +195,9 @@ if processed_students:
 
 # 3.数据筛选与统计
 # 筛选条件测试
-test_filters = [{"min_score": 80, "max_score": 95}, {"grade": "A"}, {"min_score": 60}]
+test_filters = [
+    {"min_score": 80, "max_score": 95}, {"grade": "A"}, {"min_score": 60}
+]
 for i, filter_condition in enumerate(test_filters, 1):
     result = analyze_student_performance(processed_students, filter_condition)
     pprint(result)
