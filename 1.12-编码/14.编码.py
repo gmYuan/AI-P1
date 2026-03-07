@@ -2,15 +2,20 @@
 test_texts = ["Hello World", "Hello 世界 🌍", "Python编程😊🎉"]
 
 
+# 字符编码分析函数
 def analyze_text_encoding(text0):
-    if not isinstance(text, str):  # p instanceof Person
+    # print(f'text0是： "{text0}" \n')
+    if not isinstance(text0, str):  # p instanceof Person
         raise TypeError("输入的必须是字符串")
+
     # 字符总数
-    total_chars = len(text)
+    total_chars = len(text0)
+    # ascii字符的 数量
     ascii_chars = 0
+    # 非ascii字符的 数量
     unicode_chars = 0
     character_details = []
-    for char in text:
+    for char in text0:
         # 获取字符对应的unicode码点 就是此字符在unicode中的编号
         char_unicode = ord(char)
         char_utf8_bytes = char.encode("utf-8")
@@ -29,18 +34,17 @@ def analyze_text_encoding(text0):
                 "is_ascii": char_unicode < 128,
             }
         )
-    utf8_bytes = len(text.encode("utf-8"))
+    text0_utf8_bytes_len = len(text0.encode("utf-8"))
     # 返回分析结果字典
     return {
         "total_chars": total_chars,
         "ascii_chars": ascii_chars,
         "unicode_chars": unicode_chars,
-        "utf8_bytes": utf8_bytes,
+        "utf8_bytes": text0_utf8_bytes_len,
         "character_details": character_details,
     }
 
 
-"""
 # 遍历测试文本并展示分析结果
 for text in test_texts:
     # 分析当前文本
@@ -63,7 +67,8 @@ for text in test_texts:
         print(f"  {detail}")
 
 
-
+# -----------------------------------------------------------------------
+# 编码转换函数
 def convert_encoding(text, target_encoding="utf-8"):
     if not isinstance(text, str):  # p instanceof Person
         raise TypeError("输入的必须是字符串")
@@ -71,7 +76,7 @@ def convert_encoding(text, target_encoding="utf-8"):
         return text.encode(target_encoding)
     except UnicodeEncodeError:
         if target_encoding.lower() == "ascii":
-            # 使用errors="replace"表示把不能转换的编码的字符替换为?
+            # 使用errors="replace"表示 把不能转换的编码的字符替换为?
             ascii_text = text.encode("ascii", errors="replace")
             return ascii_text
         else:
@@ -80,8 +85,29 @@ def convert_encoding(text, target_encoding="utf-8"):
             except (LookupError, UnicodeEncodeError):
                 utf8_bytes = text.encode("utf-8", errors="replace")
                 return utf8_bytes
-"""
 
+
+# 定义一个待转换的文本
+test_text = "Hello 世界"
+# 需要测试的编码类型列表
+encodings = ['ascii', 'utf-8', 'gbk']
+
+# 遍历编码类型并转换文本编码
+for encoding in encodings:
+    try:
+        # 尝试将test_text转为指定编码
+        result = convert_encoding(test_text, encoding)
+        # 打印转换结果
+        print(f"\"{test_text}\" -> {encoding.upper()}: {result}")
+    except Exception as e:
+        # 转换如果失败则打印错误信息
+        print(f"\"{test_text}\" -> {encoding.upper()}: 错误 - {e}")
+
+
+
+
+# -----------------------------------------------------------------------
+# 乱码检测与修复函数
 
 def detect_and_fix_encoding(data_bytes, possible_encodings=["utf-8", "gbk", "ascii"]):
     if not isinstance(data_bytes, bytes):
@@ -128,8 +154,13 @@ def detect_and_fix_encoding(data_bytes, possible_encodings=["utf-8", "gbk", "asc
 
 
 # 定义乱码检测测试用例列表，包含要转换的文本和采用的编码
-test_cases = [("Hello 世界", "utf-8"), ("Python编程", "utf-8")]
+test_cases = [
+    ("中文", "gbk"),
+    ("Hello 世界", "utf-8"),
+    ("Python编程", "utf-8")
+]
 
+print('-------------乱码检测---------------')
 # 遍历每个测试用例进行编码检测和修复
 for text, encoding in test_cases:
     # 将文本用指定编码转为字节数据

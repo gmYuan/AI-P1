@@ -1,4 +1,6 @@
-# 把十进制的整数转成为任意目标进制的字符串
+
+
+# 把十进制的整数 转成为任意目标进制的 字符串
 def int_to_base(n, base):
     if n == 0:
         return "0"
@@ -6,21 +8,31 @@ def int_to_base(n, base):
     result = ""
     # 255
     while n > 0:
-        last = n % base  # 255%16 =15    15
-        char = digits[last]  # F  F
-        result = char + result  # FF
-        n //= base  # 15 0
+        # 本质上就是 除基取余：
+        # last = n % base  # 255%16 =15    15
+        # char = digits[last]  # F  F
+        # result = char + result  # FF
+        # n //= base  # 15 0
+        result = digits[n % base] + result
+        n //= base
+
     return result
 
 
+
+# 进制转换函数
 def convert_base(number_str, from_base, to_base):
     if not (2 <= from_base <= 16 and 2 <= to_base <= 16):
         raise ValueError("进制必须是2到16之间")
-    # 把输入的字符串转成十进制
+
+    # 把输入的字符串转成十进制， 因为在 py里，各个进制之间能 之间转换的只有 10进制
     decimal_value = int(number_str, from_base)  # 255
+
     if to_base == 10:
         return str(decimal_value)
+
     return int_to_base(decimal_value, to_base)
+
 
 
 # 进制转换测试用例

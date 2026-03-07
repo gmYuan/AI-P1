@@ -1,3 +1,5 @@
+
+# 格式化 文件大小
 def format_file_size(size_bytes):
     if size_bytes < 0:
         raise ValueError("文件大小不能为负数")
@@ -17,6 +19,8 @@ for size in size_tests:
     print(f"{size:,} 字节 -> {result}")
 
 
+
+# 计算特定带宽下下载所需的时间
 def calculate_download_time(file_size_mb, bandwidth_mbps):
     """
     计算特定带宽下下载所需的时间
@@ -28,7 +32,8 @@ def calculate_download_time(file_size_mb, bandwidth_mbps):
     """
     if file_size_mb <= 0 or bandwidth_mbps <= 0:
         raise ValueError("文件大小和带宽必须大于0")
-    # 文件大小从M字节转为M比特Mb
+
+    # 文件大小从M字节 转为比特bits
     file_size_mb_bits = file_size_mb * 8
     time_seconds = file_size_mb_bits / bandwidth_mbps
     if time_seconds < 60:
