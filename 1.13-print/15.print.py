@@ -31,6 +31,7 @@ def show_progress():
     for i in range(11):
         progress = i * 10
         bar = "#" * i + " " * (10 - i)
+        # end为空表示不进行换行；flush用于动画效果的流畅性
         print(f"\r{bar} {progress}%", end="", flush=True)
         time.sleep(0.1)
     colored_log("\n加载完成", "INFO")
