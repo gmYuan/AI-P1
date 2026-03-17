@@ -118,7 +118,6 @@ print(f"双重否定后: {double_negation}")  # 输出: True
 
 
 
-
 """
 # ---------------------------------------------------------------------------
 # 1.21-2.1 成员运算符是否会 继承查找
@@ -142,23 +141,13 @@ child.__contains__("2")
 # 因为 in 会自动调取 __contains__方法的返回值
 print(f"2 in child 的值是：{'2' in child}" )  # 输出: True
 
-
-# js和python 都可以 1 < a < 3
-
-a = 2
-print(f"1 < a and a < 3的结果是: { 1 < a and a < 3 }")  # True
-print(f"1 < a < 3的结果是: {1 < a < 3} ")               # True
-
 """
 
 
 
-
-
-
-
-
-
+"""
+# ---------------------------------------------------------------------------
+# 1.21-3.1 常见真假值测试
 
 # 被认为是 False 的对象
 print("被认为是 False 的对象:")
@@ -184,41 +173,56 @@ print(f"bool((1, 2)): {bool((1, 2))}")  # 输出: True
 print(f"bool({{'a': 1}}): {bool({'a': 1})}")  # 输出: True
 print(f"bool({{1, 2}}): {bool({1, 2})}")  # 输出: True
 
+print(int(True))     # 输出: 1
+print(int(False))    # 输出: 0
 
-print(int(True))
-print(int(False))
+"""
 
+
+
+"""
+# ---------------------------------------------------------------------------
+# 1.21-3.2 连续比较 + 判断空对象
+
+
+# js和python 都可以 1 < a < 3，
+# 但是注意，JS转化的本质都是先转为true/false，再转为 1/0，而 py不是
+
+a = 5
+print(f"1 < a and a < 3的结果是: { 1 < a and a < 3 }")  # True
+print(f"1 < a > 3的结果是: {1 < a > 3} ")               # True
 
 ## int float str bool set list tuple
 obj = {}
 print(len(obj.keys()) == 0)
 
+"""
 
+
+
+"""
+# ---------------------------------------------------------------------------
+# 1.21-4.1 覆盖/自定义 真值判断
 
 def len():
     print("len")
 
-
 len()
-
 
 
 # 定义一个空类 Class1
 class Class1:
     pass
 
-
 # 定义一个类 Class2，实现了 __len__ 方法，总返回 0
 class Class2:
     def __len__(self):
         return 0
 
-
 # 定义一个类 Class3，实现了 __bool__ 方法，总返回 False
 class Class3:
     def __bool__(self):
         return False
-
 
 # 创建 Class1 的实例
 class1 = Class1()
@@ -234,6 +238,12 @@ print(f"bool(class2): {bool(class2)}")  # 输出: False
 # 打印 class3 的布尔值，由于 __bool__ 返回 False，预期 False
 print(f"bool(class3): {bool(class3)}")  # 输出: False
 
+"""
+
+
+"""
+# ---------------------------------------------------------------------------
+# 1.21-5.1 短路计算
 
 # and 运算符的短路特性
 print("and 运算符的短路特性:")
@@ -249,6 +259,7 @@ try:
 except ZeroDivisionError:
     print("True and (1/0) 引发了 ZeroDivisionError")
 
+
 # or 运算符的短路特性
 # 示例1: True or (1/0)
 # 第一个操作数 True 已经决定了结果，所以不会执行 1/0，避免了 ZeroDivisionError
@@ -261,6 +272,14 @@ try:
     result_or2 = False or (1 / 0)
 except ZeroDivisionError:
     print("False or (1/0) 引发了 ZeroDivisionError")
+
+"""
+
+
+
+# ---------------------------------------------------------------------------
+# 1.21-6.1 逻辑运算符的返回值
+
 
 # and 运算符遵循以下规则：
 
