@@ -1,8 +1,8 @@
 
 
-// ----------------------------------------------------------------------------
-// 1.24-1.1 todo
 
+// ----------------------------------------------------------------------------
+// 1.28-1.1 todo
 
 
 
@@ -12,19 +12,6 @@
 
 /**
 
-
-console.log(7+56+64*3)
-console.log(15+15*16)
-
-
-
-console.log(parseInt("11111111",2))
-console.log(parseInt("377",8))
-console.log(parseInt("FF",16))
-
-const x = -1;
-const result = x > 0 ? "正数" : x == 0 ? "零" : "非零";
-console.log(result)
 
 const day = 'day1'
 switch (day) {

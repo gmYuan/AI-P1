@@ -1,8 +1,7 @@
 
 
 # ---------------------------------------------------------------------------
-# 1.24-1.1  todo
-
+# 1.28-1.1
 
 
 
@@ -14,37 +13,8 @@
 """
 
 
-# 1100如果右移3位  会怎么样
-# 1
-print(0b1100 >> 4 == 0b1100 >> 5)
-# 感觉r+，w+，a+是一样的作用？
-# w 清空原来内容写入
-# a 在原来内容的尾部追加写入
-# 这是操作权限，可不是操作顺序
 
 
-# with open("test.txt", "r+") as file:
-#    file.write()
-#    file.read()
-#
-#    file.read()
-#    file.write()
-# set_mode 通过  mode | fllag实现能懂。另外清除切换包含三个操作 位迅运算 不太理解。
-READ = 0b0001  # 1
-WRITE = 0b0010  # 2
-APPEND = 0b0100  # 4
-mode = 0b0000
-# + READ
-mode |= READ  # 0b0001
-mode |= 0b0010  # 0b0011
-print(mode)
-# ~READ 0b1110
-mode &= ~READ  #  0b0010
-print(mode)
-
-
-b = bytes([65])
-print(b)
 
 
 items = ["apple", "banana", "cherry", "date", "elderberry"]
@@ -159,6 +129,9 @@ del words
 print(words)
 """
 
+
+
+"""
 my_list_pop_no_index = [10, 20, 30]
 # last_element = my_list_pop_no_index.pop()
 # print(last_element)
@@ -175,3 +148,4 @@ if isinstance(item, (int, float)):
     print(type(item))  # <class 'float'>
 else:
     print(type(item))
+"""
