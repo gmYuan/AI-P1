@@ -3,16 +3,7 @@
 
 """
 # ---------------------------------------------------------------------------
-# 1.28-1.1 todo
-
-
-
-
-"""
-
-
-
-
+# 1.28-1.1 使用 if-elif-else 结构实现 switch 功能
 
 def switch_if_elif(case):
 
@@ -39,10 +30,15 @@ result = switch_if_elif("D")
 print(f"if-elif-else 结果: {result}")
 # 输出: Default case
 
+"""
 
+
+
+"""
+# ---------------------------------------------------------------------------
+# 1.28-1.2  使用字典映射实现 switch 功能
 
 def switch_dict(case):
-
     # 使用字典映射实现 switch 功能
     # 这是最推荐的方法，性能好且代码简洁
 
@@ -61,6 +57,13 @@ result = switch_dict("X")
 print(f"字典映射结果: {result}")
 # 输出: Default case
 
+"""
+
+
+
+"""
+# ---------------------------------------------------------------------------
+# 1.28-1.3  使用函数映射字典  实现 switch 功能
 
 
 def case_a():
@@ -93,8 +96,14 @@ result = switch_function_dict("Z")
 print(f"函数字典结果: {result}")
 # 输出: Default action
 
+"""
 
 
+
+
+"""
+# ---------------------------------------------------------------------------
+# 1.28-1.4  使用 match 语句进行模式匹配
 
 def switch_match(case):
     # 使用 match 语句进行模式匹配
@@ -119,7 +128,13 @@ result = switch_match("Unknown")
 print(f"match 语句结果: {result}")
 # 输出: Default case
 
+"""
 
+
+
+"""
+# ---------------------------------------------------------------------------
+# 1.28-2.1  实际使用场景1- 实现成绩等级评估
 
 def grade_evaluator(score):
     '''
@@ -149,6 +164,14 @@ for score in scores:
     # 打印每个分数对应的等级
     grade = grade_evaluator(score)
     print(f"分数 {score} 对应等级: {grade}")
+
+"""
+
+
+
+"""
+# ---------------------------------------------------------------------------
+# 1.28-2.2  实际使用场景2- 多条件匹配
 
 
 def process_user_input(user_input):
@@ -186,13 +209,17 @@ if True or True:
 if "help" | "h":
     print("help")
 
+"""
+
+
+
+# ---------------------------------------------------------------------------
+# 1.28-2.3  实际使用场景3- 交通灯状态机
 
 class TrafficLight:
 
     # 交通灯状态机实现
     # 演示如何使用 switch 模式实现状态转换
-
-
     def __init__(self):
         # 初始化交通灯状态
         self.state = "RED"
@@ -231,14 +258,14 @@ for i in range(6):
 
 
 
-# 在Python中重载操作符 |
-
+# ---------------------------------------------------------------------------
+# 1.29-1.1  在Python中重载操作符 |
 
 class MyClass:
     def __init__(self, value):
         self.value = value
 
-    # 你可以认为这人__or__对应的数字的位运算中的或，而不等同于逻辑运算中的or
+    # 你可以认为这个__or__对应的是 数字的位运算中的或， 而不等同于逻辑运算中的or
     # 重载|操作符 对象在操作符左侧时调用
     def __or__(self, other):
         if isinstance(other, MyClass):
@@ -265,8 +292,10 @@ b = MyClass(3)  # 011
 # TypeError: unsupported operand type(s) for |: 'MyClass' and 'MyClass'
 result1 = a | b
 print(result1)
+
 result2 = a | 3
 print(result2)
+
 
 # 1010
 # 0101
