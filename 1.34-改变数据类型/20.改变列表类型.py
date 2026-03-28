@@ -1,13 +1,15 @@
-"""
+
+# ---------------------------------------------------------------------------------------
 
 # 定义一个包含不同数据类型的原始列表
 original_list_str = [1, 2.5, "aaa", True]
+
 # ValueError: could not convert string to float: 'aaa'
 # 使用列表推导式将原始列表中的所有元素转换为字符串类型
 # string_list = [float(item) for item in original_list_str]
+
 # 打印转换后的列表，验证所有元素是否都已变为字符串
-# print(f"转换为字符串后的列表: {string_list}")
-# 预期输出: ['1', '2.5', '3', 'True']
+# print(f"转换为字符串后的列表: {string_list}")  # 预期输出: ['1', '2.5', '3', 'True']
 
 
 def safe_convert_to_int(item):
@@ -57,6 +59,9 @@ str_to_float = [float(s) for s in str_numbers]
 print(f"字符串转浮点数: {str_to_float}")
 
 
+
+
+# ----------------------------------------
 # 定义一个包含不同数据类型的原始列表
 original_list_map = [1, 2.5, "3", True]
 # 使用map()函数将str类型应用于original_list_map中的每个元素
@@ -69,6 +74,7 @@ print(f"使用map()转换为字符串后的列表: {string_list_map}")
 # 使用map()进行其他类型转换
 int_list_map = list(map(int, ["1", "2", "3", "4"]))
 print(f"使用map()转换为整数后的列表: {int_list_map}")
+
 
 
 # 使用map()与自定义函数
@@ -84,13 +90,14 @@ def custom_converter(x):
     else:
         return x
 
-
 # 使用自定义转换函数
 custom_list = [1, "2", 3.0, "hello", True]
 custom_result = list(map(custom_converter, custom_list))
 print(f"使用自定义函数转换后的列表: {custom_result}")
 
 
+
+# ----------------------------------------------------
 # 定义一个包含嵌套列表和字典的复杂原始数据结构
 original_list_nested = [1, [2.5, "3"], {"key": True, "nested_list": [4, "five"]}]
 
@@ -116,11 +123,13 @@ string_list_nested = recursive_str_convert(original_list_nested)
 # 打印转换后的嵌套列表，所有基本元素都已变为字符串
 print(f"递归转换为字符串后的嵌套列表: {string_list_nested}")
 # 预期输出: ['1', ['2.5', '3'], {'key': 'True', 'nested_list': ['4', 'five']}]
-"""
 
+
+
+
+# ---------------------------------------------------------------------------------------
 # 定义一个包含多种类型元素的列表
 mixed_list = [1, "2", 3.5, "hello", 4, "world", 5.7]
-
 
 # 只转换数字类型的元素为字符串
 def convert_numbers_to_string(item):
@@ -138,6 +147,7 @@ def convert_numbers_to_string(item):
 # 使用条件转换
 conditional_result = [convert_numbers_to_string(item) for item in mixed_list]
 print(f"条件转换结果: {conditional_result}")
+
 
 
 # 使用列表推导式进行更复杂的条件转换

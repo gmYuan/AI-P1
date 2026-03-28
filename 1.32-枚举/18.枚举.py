@@ -1,4 +1,7 @@
-"""
+
+
+# ---------------------------------------------------------------------------------------
+
 # 定义一个包含多个元素的列表
 items = ["苹果", "香蕉", "橙子", "葡萄"]
 
@@ -8,10 +11,10 @@ for index, value in enumerate(items, start=1):
     print(f"索引: {index}, 值: {value}")
 
 # 输出结果：
-# 索引: 0, 值: 苹果
-# 索引: 1, 值: 香蕉
-# 索引: 2, 值: 橙子
-# 索引: 3, 值: 葡萄
+# 索引: 1, 值: 苹果
+# 索引: 2, 值: 香蕉
+# 索引: 3, 值: 橙子
+# 索引: 4, 值: 葡萄
 
 
 # 定义一个字符串
@@ -63,6 +66,14 @@ for subject_index, (subject, score) in enumerate(scores.items()):
 
 
 
+
+# ---------------------------------------------------------------------------------------
+
+file_content = """第1行：第1行内容
+第2行：第2行内容
+第3行：第3行内容
+"""
+
 # 将内容写入临时文件
 with open("temp.txt", "w", encoding="utf-8") as f:
     f.write(file_content)
@@ -80,14 +91,22 @@ with open("temp.txt", "r", encoding="utf-8") as file:
 # 第4行: 函数和模块
 # 第5行: 面向对象编程
 
+
+
+
+# ---------------------------------------------------------------------------------------
+
 # 定义3个列表
-names = ["张三", "李四", "王五"]
+names = ["张三", "李四", "王五", "赵六"]
 ages = (25, 30, 28)
 cities = ["北京", "上海", "广州"]
+
 # zip_result = [("张三", 25, "北京"), ("李四", 30, "上海"), ("王五", 28, "广州")]
-zip_result = zip(names, ages, cities)
+zip_result = zip(names, ages, cities)  # 以短的为准，多的忽略
+
 # for item in zip_result:
 #    print(item)
+
 
 # 使用enumerate()和zip()同时遍历多个序列
 for index, (name, age, city) in enumerate(zip_result, start=1):
@@ -100,13 +119,13 @@ for index, (name, age, city) in enumerate(zip_result, start=1):
 # 员工3: 王五, 28岁, 来自广州
 
 
+
+#----------------------------------------------
 # 定义一个数字列表
 numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
-
 def get_number(x):
     return x % 2 == 0
-
 
 # 使用filter()过滤偶数
 # even_numbers = filter(lambda x: x % 2 == 0, numbers)
@@ -124,6 +143,7 @@ for index, number in enumerate(even_numbers[3:8], start=1):
 # 第5个偶数: 10
 
 
+# --------------------------
 # 定义一个字符串列表
 words = ["hello", "world", "python", "programming"]
 
@@ -142,6 +162,10 @@ for index, word in enumerate(upper_words, start=1):
 # 单词4: PROGRAMMING
 
 
+
+
+# ---------------------------------------------------------------------------------------
+
 # 定义一个列表
 items = ["苹果", "香蕉", "橙子", "葡萄"]
 
@@ -151,15 +175,18 @@ indexed_dict = {
 }
 # {0: '苹果', 1: '香蕉', 2: '橙子', 3: '葡萄'}
 print(indexed_dict)
+
 # 打印结果
 print("带索引的字典:")
 for key, value in indexed_dict.items():
     print(f"索引 {key}: {value}")
 
 
+
+
+# -----------------------------
 # 定义一个列表
 fruits = ["苹果", "香蕉", "橙子", "葡萄", "香蕉", "苹果"]
-
 
 # 查找特定元素的所有位置
 def find_all_positions(lst, target):
@@ -177,8 +204,10 @@ print(f"'香蕉'在列表中的位置: {banana_positions}")
 apple_positions = find_all_positions(fruits, "苹果")
 print(f"'苹果'在列表中的位置: {apple_positions}")
 
-"""
 
+
+
+# -----------------------------
 # 定义一个数字列表
 scores = [85, 92, 78, 96, 88, 91, 87, 94]
 

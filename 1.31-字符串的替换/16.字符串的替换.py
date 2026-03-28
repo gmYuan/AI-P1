@@ -1,4 +1,6 @@
-"""
+
+
+#------------------------------------------------------------------------
 # 定义一个原始字符串
 original_string = "hello world"
 
@@ -23,6 +25,8 @@ new_text = text.replace("hello", "hi", 1)
 print(new_text)
 
 
+
+#------------------------------------------------------------------------
 # 导入re模块，用于正则表达式操作
 import re
 
@@ -38,13 +42,15 @@ new_text = re.sub(r"a", "o", text)
 print(new_text)
 
 
+
+#------------------------------------------------------------------------
 # 导入re模块
 import re
 
 # 定义一个包含电话号码的文本
 text_with_phone = "Contact us at 123-456-7890 or 987-654-3210"
 
-# 使用正则表达式将所有电话号码替换为"XXX-XXX-XXXX"
+# 使用正则表达式 将所有电话号码替换为"XXX-XXX-XXXX"
 # \d{3}-\d{3}-\d{4} 匹配格式为XXX-XXX-XXXX的电话号码
 masked_text = re.sub(r"\d{3}-\d{3}-\d{4}", "XXX-XXX-XXXX", text_with_phone)
 
@@ -64,6 +70,8 @@ case_insensitive_text = re.sub(r"hello", "hi", text_case, flags=re.IGNORECASE)
 print(case_insensitive_text)
 
 
+
+#------------------------------------------------------------------------
 # 定义一个包含多个替换项的文本
 text = "I have an apple and an orange."
 
@@ -82,11 +90,17 @@ for old_substring, new_substring in replacements.items():
 # 预期输出: I have a banana and a grape.
 print(text)
 
+
+
+
+#------------------------------------------------------------------------
 # 导入re模块
 import re
 
 # 定义一个文本，其中包含需要替换的颜色名称（中文）
+# text_colors = "这些颜色有 red、blue 和 green。"
 
+# color_map = {"red": "red2", "blue": "blue2", "green": "green2"}
 
 # 定义一个替换函数，它将根据匹配到的颜色返回新的颜色
 # def replace_color(match):
@@ -100,16 +114,28 @@ import re
 # 构建一个正则表达式模式，匹配字典中所有的颜色名称
 # keys = color_map.keys()  # ["red","blue","green"]
 # print(keys)
-# map_result = map(re.escape, keys)  # ["red","blue","green"]
-# print(map_result)
+
+# re.escape 用来转义正则里有特殊含义的字符
+# map_result = map(re.escape, keys)
+# print(map_result)       # ["red","blue","green"] 类似列表的迭代器
+
 # pattern_string = "|".join(map_result)
-# print(pattern_string)
-# pattern_colors = re.compile(pattern_string)
-# print(pattern_colors)
+# print(pattern_string)             # "red"|"blue"|"green"
+
+
+# re.compile(...) 的返回值：
+#   一个 re.Pattern 对象（可理解为「已编译好的正则」）
+
+# pattern_colors = re.compile(pattern_string)   # re.compile("red|blue|green")
+# print(pattern_colors)     
+
 # 使用re.sub()，并将replace_color函数作为替换参数
 
+
+# 简洁写法：
 text_colors = "这些颜色有 red、blue 和 green。"
 color_map = {"red": "red2", "blue": "blue2", "green": "green2"}
+# re.sub(pattern, replacement, string, ...)
 new_text_colors = re.compile("|".join(map(re.escape, color_map.keys()))).sub(
     lambda match: color_map.get(match.group(0)), text_colors
 )
@@ -117,7 +143,7 @@ print(new_text_colors)
 
 
 
-
+#------------------------------------------------------------------------
 # 定义一个包含需要替换字符的文本
 text_chars = "Hello, World!"
 
@@ -149,6 +175,7 @@ print(complex_translated)
 
 
 
+#------------------------------------------------------------------------
 # 场景：清洗用户输入的数据
 def clean_user_input(user_input):
     # 定义需要替换的字符映射
@@ -177,9 +204,9 @@ clean_result = clean_user_input(dirty_input)
 print("清洗前:", repr(dirty_input))
 print("清洗后:", repr(clean_result))
 
-"""
 
 
+#------------------------------------------------------------------------
 # 场景：邮件模板替换
 def replace_email_template(template, user_data):
     # 使用字典进行模板变量替换

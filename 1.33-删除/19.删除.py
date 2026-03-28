@@ -1,36 +1,43 @@
-"""
+
+# ---------------------------------------------------------------------------------------
 
 # 示例列表，用于演示各种删除操作
 my_list_original = [1, 2, 3, 4, 2, 5]
 
 # 演示 remove()
+
 # 创建一个新的列表副本，以确保每次操作都在原始状态下进行
 my_list_remove = list(my_list_original)
 # 打印操作前的列表状态
 print(f"操作前列表: {my_list_remove}")
+
 # 从列表中删除第一个匹配到的值 "2"
 # ValueError: list.remove(x): x not in list
 my_list_remove.remove(2)
 # 打印操作后的列表状态
-print(f"操作后列表: {my_list_remove}")
-# 预期输出: [1, 3, 4, 2, 5]
+print(f"操作后列表: {my_list_remove}")  # 预期输出: [1, 3, 4, 2, 5]
+
 
 # 演示 del 语句
 # 创建一个新的列表副本
 my_list_del = list(my_list_original)
 # 打印操作前的列表状态
 print(f"操作前列表: {my_list_del}")
+
 # 删除索引为 2 的元素 (即值 3)
 # del my_list_del[2]
 # 打印操作后的列表状态
-# print(f"操作后列表: {my_list_del}")
-# 预期输出: [1, 2, 4, 2, 5]
-# print("\n")
+# print(f"操作后列表: {my_list_del}")   # 预期输出: [1, 2, 4, 2, 5]
+
+
 # del my_list_del[2:4]
-# print(f"del操作前列表: {my_list_del}")
-# NameError: name 'my_list_del' is not defined
+# print(f"操作后列表: {my_list_del}")   # 预期输出: [1, 2, 2, 5]
+
+
 # del my_list_del
-print(f"del操作前列表: {my_list_del}")
+# print(f"操作后列表: {my_list_del}")  # NameError: name 'my_list_del' is not defined
+
+
 
 # 演示 pop()
 # 创建一个新的列表副本
@@ -42,10 +49,10 @@ removed_element = my_list_pop.pop(1)
 # 打印操作后的列表状态
 print(f"操作后列表: {my_list_pop}")
 # 打印被删除的元素
-print(f"被删除的元素: {removed_element}")
-# 预期输出: 列表: [1, 3, 4, 2, 5], 被删除元素: 2
-print("\n")
+print(f"被删除的元素: {removed_element}")  # 预期输出: 列表: [1, 3, 4, 2, 5], 被删除元素: 2
 
+
+print("\n")
 # 演示 pop() 不带索引
 # 创建一个新的列表副本
 my_list_pop_no_index = [10, 20, 30]
@@ -56,8 +63,8 @@ last_element = my_list_pop_no_index.pop()
 # 打印操作后的列表状态
 print(f"操作后列表: {my_list_pop_no_index}")
 # 打印被删除的元素
-print(f"被删除的元素: {last_element}")
-# 预期输出: 列表: [10, 20], 被删除元素: 30
+print(f"被删除的元素: {last_element}")  # 预期输出: 列表: [10, 20], 被删除元素: 30
+
 
 
 # 演示 del 切片删除
@@ -72,6 +79,10 @@ print(f"操作后列表: {my_list_slice}")
 # 预期输出: [1, 2, 6, 7, 8, 9]
 print("\n")
 
+
+
+
+# ---------------------------------------------------------------------------------------
 # 演示异常处理
 # 创建一个空列表用于演示异常情况
 empty_list = []
@@ -98,6 +109,10 @@ except IndexError as e:
     print(f"del 异常: {e}")
 
 
+
+
+# ---------------------------------------------------------------------------------------
+
 # 从用户输入中收集的数据
 user_data = [1, 2, None, 3, 4, None, 5, 6, None, 7]
 print(f"原始数据: {user_data}")
@@ -113,8 +128,6 @@ print(f"使用 remove() 清理后: {cleaned_data_remove}")
 cleaned_data_comprehension = [x for x in user_data if x is not None]
 print(f"使用列表推导式清理后: {cleaned_data_comprehension}")
 
-
-"""
 
 
 # 定义一个简单的栈类
@@ -176,10 +189,14 @@ def is_balanced_parentheses(expression):
 # test_expressions = ["()", "()[]{}", "(]", "([)]", "{[]}"]
 # test_expressions = ["{[()]}"]
 test_expressions = ["([)]"]
+
 # 遍历测试用例
 for expr in test_expressions:
     # 输出每一个表达式的匹配结果
     print(f"'{expr}' 是否平衡: {is_balanced_parentheses(expr)}")
 
-# 每次往栈中存key，然后从栈中弹出作为key去字典中查找value，拿这个值和下一个字符去匹配，如果匹配成功就继续向下匹配，如果不成功则直接返回false
+
+# 每次往栈中存key，然后从栈中弹出作为key去字典中查找value，
+#   - 拿这个值和下一个字符去匹配，如果匹配成功就继续向下匹配，如果不成功则直接返回false
+
 # 如果匹配则栈为空，如果不匹配则返回false
