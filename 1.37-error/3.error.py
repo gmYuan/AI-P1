@@ -1,4 +1,7 @@
-"""
+
+
+# ------------------------------------------------------------------------------------------
+
 # 定义一个包含姓名和年龄的字典
 my_dict = {"name": "Alice", "age": 25}
 
@@ -26,10 +29,15 @@ print(f"性别: {my_dict.get('gender', '未知')}")
 print(f"城市: {my_dict.get('city')}")
 
 
+
+
+# ------------------------------------------------------------------------------------------
+
 # 尝试将一个字符串 '3' 和一个整数 4 相加
 # 字符串和整数之间不支持 '+' 运算符，这将导致 TypeError
-result = int("3") + 4
-print(result)  # TypeError: can only concatenate str (not "int") to str
+# result = "3" + 4
+# print(result)  # TypeError: can only concatenate str (not "int") to str
+
 
 
 # 定义一个变量，其类型可能不确定
@@ -60,6 +68,8 @@ else:
     print(f"'{some_variable_list}' 不是一个列表。")
 
 
+
+
 # 示例：安全地进行加法操作
 def safe_add(a, b):
     # 检查两个参数是否都是整数或浮点数
@@ -80,13 +90,15 @@ print(f"安全加法 (1, 2): {safe_add(1, 2)}")
 print(f"安全加法 ('1', 2): {safe_add('1', 2)}")
 
 
+
+# ------------------------------------------------------------------------------------------
 # 尝试将一个非数字的字符串 'abc' 转换为整数
 # 字符串 'abc' 的类型是正确的（str），但其值无法被解释为整数
 # 这将导致 ValueError
-num = int("abc")
-print(num)  # ValueError: invalid literal for int() with base 10: 'abc'
+# num = int("abc")
+# print(num)  # ValueError: invalid literal for int() with base 10: 'abc'
 
-"""
+
 
 # 定义一个可能包含非数字字符的字符串
 input_string_valid = "123"
@@ -119,7 +131,8 @@ if input_string_float.isdigit():
     print(f"'{input_string_float}' 转换为整数: {num}")
 else:
     # 如果不是，则打印错误信息
-    print(f"'{input_string_float}' 是无效输入，不是一个纯数字。")
+    print(f"'{input_string_float}' 是无效输入，不是一个纯数字~~~~~~。")
+
 
 
 # 更通用的数值转换验证（使用 try-except）
@@ -142,14 +155,18 @@ print(f"安全转换 ('abc'): {safe_int_convert('abc')}")  # None
 # 调用安全转换函数，传入浮点数字符串（int() 无法直接转换）
 print(f"安全转换 ('3.14'): {safe_int_convert('3.14')}")  # None
 
-None
+
+
+# ------------------------------------------------------------------------------------------
+
 # 昨天的join函数也是不能"3".join(4) 也是要转换#
-# TypeError: can only join an iterable join只能连接可迭代对象
+# TypeError: can only join an iterable： 因为 join只能连接可迭代对象（字符可迭代，数字不可以）
 # print("3".join(4))
-# isinstance支持多个类型传入判断这个功能比js好，省得写那么多
+
+
+# isinstance支持多个类型传入判断， 这个功能比js好，省得写那么多
 str = "abc"
 if isinstance(str, (int, float)):
     print("是整形或者浮点数")
-
 
 print("3".join("4"))
