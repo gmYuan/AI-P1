@@ -1,25 +1,10 @@
 
 
-//---------------------------------------------------------
-
-
-
-
-
-/**
-
-
-//(lambda x: x > 5)(num)
-
-const result = (function(x){
-    return x>5
-})(1)
-console.log(result)
-
-
+//-------------------------------------------------------------------------------
 let str = '1+2+3'
 let result = eval(str)
 console.log(result)
+
 
 //const keyValueParies = ["a", 1, "b", 2, "c", 3]
 const keyValueParies =[
@@ -27,14 +12,23 @@ const keyValueParies =[
     ["age",25],
     ["city","北京"]
 ]
- properties.reduce((accumulator,currentValue,currentIndex,array)=>{
-    return accumulator
-},initialValue) 
+// properties.reduce((accumulator,currentValue,currentIndex,array)=>{
+//    return accumulator
+//},initialValue)
+
 const obj = keyValueParies.reduce((acc,[key,value])=>{
     acc[key]=value
     return acc
 },{})
+
 console.log(obj)
+
+
+
+/**
+
+
+
 
 const list = [0,2,4]
 //js中的some对应python中的any

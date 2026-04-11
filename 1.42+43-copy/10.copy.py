@@ -1,3 +1,5 @@
+
+
 def deepCopy(obj, memo=None):
     # 存放着已经拷贝过的对象 key 被 拷贝对象的内存ID，值拷贝出来的新的对象
     if memo is None:

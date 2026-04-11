@@ -86,3 +86,27 @@ print(result2.age)
 
 result = cls.__new__(cls)   # 这样写等于 new，不会调用 init==> 会构造一个干净的空对象
 print(result.age)
+
+
+
+# ----------------------------------------------------------------------------------------------
+class Node:
+    def __init__(self):
+        pass
+
+    def add_friend(self, friend):
+        self.friend = friend
+
+
+node1 = Node()
+node2 = Node()
+node1.add_friend(node2)
+node2.add_friend(node1)
+
+
+
+# ---------------------------------------------------------
+list1 = []
+list2 = []
+list1[0] = list2
+list2[0] = list1
