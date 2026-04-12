@@ -72,14 +72,11 @@ print(obj)
 
 
 
-
-
-
-"""
-
+# ----------------------------------------------------------------
 
 # 定义一个包含单词的列表
 words = ["Hello", "Python", "World"]
+
 # 使用reduce函数连接字符串
 # lambda x, y: x + " " + y 在两个字符串之间添加空格
 result = reduce(lambda x, y: x + " " + y, words)
@@ -104,6 +101,10 @@ sql_conditions = reduce(lambda x, y: x + " AND " + y, conditions)
 print(f"SQL条件: {sql_conditions}")
 # 输出: "age > 18 AND status = 'active' AND city = 'Beijing'"
 
+
+
+
+# ----------------------------------------------------------------
 
 # 定义一个包含数字的列表
 numbers = [1, 2, 3, 4, 5]
@@ -153,21 +154,24 @@ else:
     print("没有优秀成绩")
 # 输出: 优秀成绩: [92, 96, 91, 95]
 #       优秀成绩平均分: 93.5
+
+
+
 # js 的map 和filter直接是数组，然后python出来不是  还要list一下
 
-numbers = [1, 2, 3, 4, 5]
 
+
+numbers = [1, 2, 3, 4, 5]
 
 def mapFn(x):
     print("计算mapFn的x的值", x)
     return x * x
 
-
 squared_numbers = map(mapFn, numbers)
-print(squared_numbers)
-next(squared_numbers)
+print(squared_numbers)   # 这里不会打印 计算mapFn的x的值
+
+next(squared_numbers)    # 读取时才会真正执行
 squared_numbers.__next__()
 # list(squared_numbers)
 for item in squared_numbers:
     print(item)
-"""

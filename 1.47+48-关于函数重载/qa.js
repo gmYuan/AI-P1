@@ -1,70 +1,22 @@
 
 
 //-------------------------------------------------------------------------------
-let str = '1+2+3'
-let result = eval(str)
-console.log(result)
-
-
-//const keyValueParies = ["a", 1, "b", 2, "c", 3]
-const keyValueParies =[
-    ["name","张三"],
-    ["age",25],
-    ["city","北京"]
-]
-// properties.reduce((accumulator,currentValue,currentIndex,array)=>{
-//    return accumulator
-//},initialValue)
-
-const obj = keyValueParies.reduce((acc,[key,value])=>{
-    acc[key]=value
-    return acc
-},{})
-
-console.log(obj)
-
-
-
-/**
-
-
-
-
-const list = [0,2,4]
-//js中的some对应python中的any
-function mySome(array,predicate){
-    for(let i=0;i<array.length;i++){
-        if(predicate?predicate(array[i],i,array):array[i]){
-            return true;
-        }
-    }
-    return false
-}
-console.log(mySome(list,x=>x%2==0))
-//js 中的every对应python中的all
-function myEvery(array,predicate){
-    for(let i=0;i<array.length;i++){
-        if(!(predicate?predicate(array[i],i,array):array[i])){
-            return false;
-        }
-    }
-    return true
-}
-console.log(myEvery(list,x=>x%2==0))
-
-console.log(list.every(x=>x%2==0))
-console.log(list.some(x=>x%2==0))
-
 
 function add_item(item, target_list=[]){
     target_list.push(item)
     return target_list
 }
-    
+
 list1 = add_item("apple")
 console.log(list1)
 list2 = add_item("banana")
 console.log(list2)
+
+
+
+
+/**
+
 
 
 function calculate_sum(...args){

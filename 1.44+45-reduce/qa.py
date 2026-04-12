@@ -49,27 +49,3 @@ dct = {}
 for i in range(0, len(lst), 2):
     dct[lst[i]] = lst[i + 1]
 print(dct)
-
-
-
-
-"""
-
-
-message = "用户 {} 登录成功 {} "
-args = ("Alice", "2")
-print(message.format(*args))
-
-
-def wrapper(*args, **kwargs):
-    pass
-
-
-def register():
-    print("register")
-
-
-wrapper.register = register
-
-wrapper.register()
-"""
